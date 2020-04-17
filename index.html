@@ -1,5 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8" />
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122813468-4"></script>
 <script>
@@ -9,7 +11,44 @@
 
   gtag('config', 'UA-122813468-4');
 </script>
-<meta HTTP-EQUIV="REFRESH" content="1; url=https://tailpath.com/">
+	
+<script>
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}</script>
+
+<script>
+function DetectAndServe(){
+    let os = getMobileOperatingSystem();
+    if (os == "Android") {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.tailpath.tailpath"; 
+    } else if (os == "iOS") {
+        window.location.href = "https://apps.apple.com/app/tailpath/id1485476665";
+    } else if (os == "Windows Phone") {
+        window.location.href = "https://tailpath.com";
+    } else {
+        window.location.href = "https://tailpath.com";
+    }
+}
+</script>
+	
+	<meta HTTP-EQUIV="REFRESH" content="3; url=https://tailpath.com/">
 
 </head>
+<body onload="DetectAndServe()">
+</body>
 </html>
